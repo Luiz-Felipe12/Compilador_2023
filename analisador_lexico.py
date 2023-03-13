@@ -10,17 +10,7 @@ class AnalisadorLexico():
   def __init__(self):
     self.arquivo_e = "programa.txt"
     self.arquivo_s = "resp-lex.txt"
-
-  # Metodo para mudar arquivo de entrada
-  def mudaEntrada(self, string):
-    self.arquivo_e = string
-
-  def getEntrada(self):
-    return self.arquivo_e
-
-  def getSaida(self):
-    return self.arquivo_s
-
+    
   # Metodo que verifica se a entrada é um delimitador
   def ehDelimitador(self, caracter):
     # String com os delimitadores componentes da linguagem
