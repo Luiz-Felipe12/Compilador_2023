@@ -256,7 +256,7 @@ class AnalisadorSintatico():
                         
                         #verifica se existe ,
                         if("tok201" in tokens[i]):
-                            i+1
+                            i+=1
                             #verifica se existe )
                             if("tok203" in tokens[i]):
                                 vetor_erro.append(False)
@@ -269,9 +269,23 @@ class AnalisadorSintatico():
                                 vetor_params.clear
                                 verifica_params(i,tokens)
                                 i=vetor_params[len(vetor_params)-1]
-                    vetor_params.append(i)
-                              
-                
+                    else:
+                        vetor_erro.append(False)
+                        linha_atual = tokens[i].split("->")
+                        print("Erro sintatico - Esperado um identificador apos o parametro - linha: " +str(linha_atual[1])+"\n")
+                        arquivo_saida.write(
+                        "Erro sintatico - Esperado um identificador apos o parametro - linha: "+str(linha_atual[1])+"\n")
+
+                #verifica a existencia do vazio            
+                elif("tok606" in tokens[i]):
+                    i+=1
+                    
+                else:
+                    vetor_erro.append(False)
+                    linha_atual = tokens[i].split("->")
+                    print("Erro sintatico - Tipo de parametro nao adequado - linha: " +str(linha_atual[1])+"\n")
+                    arquivo_saida.write(
+                    "Erro sintatico - Tipo de parametro nao adequado - linha: "+str(linha_atual[1])+"\n")
                 vetor_params.append(i)
                 
             def verifica_se(i,tokens,func):

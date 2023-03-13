@@ -10,10 +10,9 @@ enquanto(a>1){
    }
 }
 
-
 real soma= 1.0+2.0;
 
-funcao vazio faznada()
+funcao vazio faznada(vazio)
 {
 	se(a==b){
 		imprimir(0);
@@ -22,10 +21,11 @@ funcao vazio faznada()
       }
 	}
 	senao{
-		escreva(1);
+		imprimir(1);
 	}
 	retorno vazio;
 }
-faznada();
+faznada(vazio);
+procedimento(inteiro x, real y);
 
 inteiro z=2;
