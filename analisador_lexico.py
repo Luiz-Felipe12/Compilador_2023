@@ -196,10 +196,10 @@ class AnalisadorLexico():
             arquivo_saida.write('tok300_'+string_temp+'->'+str(numero_linha)+'\n')
             if(not self.ehDigito(caracter_atual)):
               i -= 1
-        # Verificando identificadores ou palavras reservadas - OK
+        # Verificando identificadores ou palavras reservadas
         elif (self.ehLetra(caracter_atual)):
           # Apos verificar que o primeiro caractere da palavra era uma letra, vou percorrendo o identificador
-          # ateh encontrar um caractere que nao possa ser de identificadores ou ateh o final da linha
+          # ate encontrar um caractere que nao possa ser de identificadores ou ate o final da linha
           string_temp = caracter_atual
           i += 1
           algum_erro = False
@@ -248,5 +248,5 @@ class AnalisadorLexico():
     arquivo_saida.write('$')
     # Fim do arquivo de entrada
     arquivo.close()
-    # Fim do arquivo de entrada
+    # Fim do arquivo de saida
     arquivo_saida.close
