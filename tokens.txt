@@ -1,0 +1,57 @@
+# tok1 - Operador
+#   tok100 - .
+#   tok101 - +
+#   tok102 - -
+#   tok103 - *
+#   tok104 - /
+#   tok105 - ++
+#   tok106 - --
+#   tok107 - ==
+#   tok108 - !=
+#   tok109 - >
+#   tok110 - >=
+#   tok111 - <
+#   tok112 - <=
+#   tok113 - &&
+#   tok114 - ||
+#   tok115 - =
+
+# tok2 - Delimitador
+#   tok200 - ;
+#   tok201 - ,
+#   tok202 - (
+#   tok203 - )
+#   tok204 - {
+#   tok205 - }
+#   tok206 - [
+#   tok207 - ]
+
+# tok3 - Numero
+# tok300 - Numero Inteiro
+# tok301 - Numero Real
+
+# tok400 - Caractere
+
+# tok500 - Identificador
+
+# tok6 - Palavra reservada
+#   tok600 - continuar
+#   tok601 - variaveis
+#   tok602 - constantes
+#   tok603 - registro
+#   tok604 - funcao
+#   tok605 - retorno
+#   tok606 - vazio
+#   tok607 - se
+#   tok608 - senao
+#   tok609 - enquanto
+#   tok610 - quebrar
+#   tok611 - leia
+#   tok612 - escreva
+#   tok613 - inteiro
+#   tok614 - real
+#   tok615 - booleano
+#   tok616 - char
+#   tok617 - imprimir
+#   tok618 - verdadeiro
+#   tok619 - falso

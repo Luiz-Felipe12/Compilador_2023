@@ -1,0 +1,31 @@
+real a=10.0;
+inteiro b=5;
+booleano c= verdadeiro;
+real d= 5.0;
+char LETRA = 'a';
+enquanto(a>1){
+   enquanto(b<2){
+    imprimir(a)
+    continuar
+   }
+}
+
+
+real soma= 1.0+2.0;
+
+funcao vazio faznada()
+{
+	se(a==b){
+		imprimir(0);
+      se(a>b){
+         faznada()
+      }
+	}
+	senao{
+		escreva(1);
+	}
+	retorno vazio;
+}
+faznada();
+
+inteiro z=2;
