@@ -45,13 +45,17 @@ class AnalisadorSintatico():
                     #verifica se realmente é um numero inteiro
                     i+=1
                     if (("tok300" in tokens[i]) == False):
-                        vetor_erro.append(False)
-                        linha_atual = tokens[i].split("->")
-                        print(
-                            "Erro sintatico - Esperado um número inteiro - linha: "+str(linha_atual[1])+"\n")
-                        arquivo_saida.write(
-                            "Erro sintatico - Esperado um numero inteiro - linha: "+str(linha_atual[1])+"\n")
-                        return i
+                        
+                        if (("tok500" in tokens[i]) == False):
+                            vetor_erro.append(False)
+                            linha_atual = tokens[i].split("->")
+                            print(
+                                "Erro sintatico - Esperado um número inteiro - linha: "+str(linha_atual[1])+"\n")
+                            arquivo_saida.write(
+                                "Erro sintatico - Esperado um numero inteiro - linha: "+str(linha_atual[1])+"\n")
+                            return i
+                    
+                    
                     
                     #verifica a existencia de um operador
                     elif("tok101" in tokens[i+1] or 
@@ -298,11 +302,20 @@ class AnalisadorSintatico():
                                 if("tok202" in tokens[i]):
                                     i+=1
                                     vetor_se.clear
+                                    
                                     verifica_expressao_bool(i,tokens)
                                     
                                     i=vetor_se[len(vetor_se)-1]
+                                    #verifica a existencia de && ou ||
+                                    if("tok113" in tokens[i] or "tok114" in tokens[i]):
+                                        i+=1
+                                        vetor_se.clear
+                                        verifica_expressao_bool(i,tokens)
+                                    
+                                        i=vetor_se[len(vetor_se)-1]
+                                        
                                      #verifica a existencia do )
-                                    if ("tok203" in tokens[i]):
+                                    elif ("tok203" in tokens[i]):
                                         i+=1
                                         #verifica a existencia do {
                                         if ("tok204" in tokens[i]):
@@ -387,6 +400,13 @@ class AnalisadorSintatico():
                                     verifica_expressao_bool(i,tokens)
                                     
                                     i=vetor_se[len(vetor_se)-1]
+                                    
+                                    if("tok113" in tokens[i] or "tok114" in tokens[i]):
+                                        i+=1
+                                        vetor_se.clear
+                                        verifica_expressao_bool(i,tokens)
+                                        
+                                        i=vetor_se[len(vetor_se)-1]
                                      #verifica a existencia do )
                                     if ("tok203" in tokens[i]):
                                         i+=1
@@ -431,6 +451,7 @@ class AnalisadorSintatico():
                                               
                         
                                     else:
+                                        print("caceter")
                                         vetor_erro.append(False)
                                         linha_atual = tokens[i].split("->")
                                         print("Erro sintatico - Esperado um ) - linha: " +str(linha_atual[1])+"\n")
@@ -549,9 +570,9 @@ class AnalisadorSintatico():
                         else:
                             vetor_erro.append(False)
                             linha_atual = tokens[i].split("->")
-                            print("Erro sintatico - Esperado um ( - linha: " +str(linha_atual[1])+"\n")
+                            print("Erro sintatico - Esperado um ) - linha: " +str(linha_atual[1])+"\n")
                             arquivo_saida.write(
-                            "Erro sintatico - Esperado um ( - linha: "+str(linha_atual[1])+"\n")
+                            "Erro sintatico - Esperado um ) - linha: "+str(linha_atual[1])+"\n")
                             
                     vetor_chamada.append(i)
                         
@@ -654,7 +675,7 @@ class AnalisadorSintatico():
             if("tok607" in tokens[i]):
                 vetor_verif_se.clear()
                 verifica_se(i,tokens,False)
-                i=vetor_verif_se[len(vetor_verif_se)-1]
+                
             
             verifica_senao(i,tokens)
             
